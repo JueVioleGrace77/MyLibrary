@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style3 {
+            width: 640px;
+            height: 167px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class ="Header">
+            <img alt="" class="auto-style3" src="Images/header.jpg"></div>
+        <div class ="Menu">
+            <asp:SiteMapDataSource ID="libraryCollection" runat="server" ShowStartingNode="False"/>
+            <asp:Menu ID="libraryCollectionMenu" runat="server" DataSourceID="libraryCollection" Orientation="Horizontal">
+                <StaticItemTemplate>
+                    <img alt="" height="16" src="Images/book_closed.gif" width="16" />
+                    <%# Eval("Text") %>
+                </StaticItemTemplate>
+            </asp:Menu>
+            </div>
+    <div class ="Content">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">       
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
